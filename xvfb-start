@@ -1,0 +1,6 @@
+#!/bin/bash
+pids=$(pidof /usr/bin/Xvfb)
+if [ -z "$pids" ]; then
+    echo "Starting Virtual Framebuffer X Server on display $DISPLAY with geometry $GEOMETRY"
+    Xvfb $DISPLAY -ac -screen 0 $GEOMETRY -nolisten tcp &
+fi
